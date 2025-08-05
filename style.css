@@ -52,3 +52,62 @@ nav a {
   width: 100%;
   height: 100%;
 }
+
+.petunjuk {
+  background: #fff;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-radius: 8px;
+  text-align: left;
+}
+
+.petunjuk ol {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.pertandingan {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  padding: 0.5em 1em;
+  margin-bottom: 1em;
+  border-radius: 8px;
+}
+
+.info-pertandingan {
+  flex-grow: 1;
+  display: flex;
+  gap: 1em;
+  font-weight: bold;
+  align-items: center;
+}
+
+.tim {
+  min-width: 80px;
+}
+
+.jam {
+  font-size: 1.1em;
+  color: #555;
+}
+
+.tombol-nonton {
+  background: red;
+  color: white;
+  padding: 0.5em 1em;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.donasi {
+  background: #fff;
+  padding: 1em;
+  margin-top: 2em;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 0.9em;
+}
+
