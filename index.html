@@ -3,65 +3,74 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Live Streaming Bola Hari Ini</title>
+  <title>Jadwal Live Bola Hari Ini | BolaTV</title>
+  <meta name="description" content="Jadwal lengkap live streaming bola hari ini dengan tombol Nonton Sekarang. Gratis!">
   <link rel="stylesheet" href="style.css" />
-  <!-- Iklan Popunder 2 klik -->
-  <script src="https://fpyf8.com/88/tag.min.js" data-zone="161479" async data-cfasync="false"></script>
+  <!-- Taruh script iklan Monetag kamu di bawah ini -->
 </head>
 
-<body>
-  <header>
-    <h1>Live Streaming Bola Hari Ini</h1>
-    <nav>
-      <a href="index.html">Beranda</a>
-      <a href="tentang.html">Tentang</a>
-      <a href="disclaimer.html">Disclaimer</a>
-      <a href="privacy.html">Privasi</a>
-      <a href="kontak.html">Kontak</a>
+<body style="font-family:Arial, sans-serif; margin:0; background:#f4f4f4;">
+
+  <header style="background:#111; color:#fff; padding:1em; text-align:center;">
+    <h1>📺 BolaTV - Jadwal Live Bola Hari Ini</h1>
+    <nav style="margin-top:0.5em;">
+      <a href="index.html" style="color:#fff; margin:0 1em; text-decoration:none;">Beranda</a>
+      <a href="tentang.html" style="color:#fff; margin:0 1em; text-decoration:none;">Tentang</a>
+      <a href="disclaimer.html" style="color:#fff; margin:0 1em; text-decoration:none;">Disclaimer</a>
+      <a href="privacy.html" style="color:#fff; margin:0 1em; text-decoration:none;">Privasi</a>
+      <a href="kontak.html" style="color:#fff; margin:0 1em; text-decoration:none;">Kontak</a>
     </nav>
   </header>
 
-  <main class="jadwal">
-    <div class="petunjuk">
-      <p>Silahkan scroll ke bawah untuk link</p>
-      <p><strong>Tutorial nonton live:</strong></p>
-      <ol>
-        <li>Klik tombol Nonton.</li>
-        <li>Jika muncul tab baru, silahkan tutup/silang. Jika muncul lagi, tutup lagi.</li>
-        <li>Setelah itu klik lagi tombol sampai berpindah ke halaman live streaming.</li>
-        <li>Nikmati pertandingannya!</li>
-        <li>Begitu juga di halaman selanjutnya</li>
+  <main style="max-width:800px; margin:2em auto; padding:1em; background:#fff; box-shadow:0 0 10px rgba(0,0,0,0.1);">
+    <section class="petunjuk" style="margin-bottom:2em;">
+      <h2 style="border-bottom:2px solid #e74c3c; padding-bottom:0.5em;">📢 Cara Nonton Live</h2>
+      <ol style="line-height:1.6;">
+        <li>Klik tombol <strong>Nonton Sekarang</strong> di pertandingan yang ingin kamu tonton.</li>
+        <li>Jika muncul tab baru berisi iklan, tutup saja tab tersebut dan kembali ke halaman ini.</li>
+        <li>Klik lagi tombol jika perlu sampai berpindah ke halaman live streaming asli.</li>
       </ol>
-    </div>
+    </section>
 
-    <div class="pertandingan">
-      <div class="info-pertandingan">
-        <span class="tim">Arsenal</span>
-        <span class="jam">00.00</span>
-        <span class="tim">Villareal</span>
-      </div>
-      <a href="artikel.html" class="tombol-nonton">Nonton Sekarang</a>
-    </div>
-
-  
-
-    <div class="HALLO">
-      <p><strong>Makasih</strong> Jika suka dengan website ini silahkan nikmati!</p>
-    </div>
+    <section id="jadwal">
+      <p>Memuat jadwal pertandingan...</p>
+    </section>
   </main>
 
-  <footer>
+  <footer style="background:#111; color:#fff; text-align:center; padding:1em;">
     <p>&copy; 2025 BolaTV. All rights reserved.</p>
   </footer>
 
-  <!-- OneSignal Push Notification -->
-  <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
   <script>
-    window.OneSignalDeferred = window.OneSignalDeferred || [];
-    OneSignalDeferred.push(async function(OneSignal) {
-      await OneSignal.init({
-        appId: "032c0494-cfff-45c1-be5b-ccda75d43b68",
+  const sheetCSV = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTcwnwBCxx1BlhEf9Wn1yCGYpHgVI_7SBYXADUDlnfwMS58dcD3--8UWdMZLYCo_orsjlxWadh9FiDF/pub?output=csv";
+
+  fetch(sheetCSV)
+    .then(response => response.text())
+    .then(data => {
+      const rows = data.trim().split("\n").slice(1); // skip header
+      let html = "";
+      rows.forEach(row => {
+        const cols = row.split(",");
+        const waktu = cols[0].replace(/"/g, "");
+        const pertandingan = cols[1].replace(/"/g, "");
+        const link = cols[2].replace(/"/g, "");
+
+        html += `
+          <div class="pertandingan" style="margin:1em 0; padding:1em; border:1px solid #ddd;">
+            <div class="info-pertandingan" style="font-size:1.1em; font-weight:bold; margin-bottom:0.5em;">
+              ${waktu} - ${pertandingan}
+            </div>
+            <a href="${link}" target="_blank" style="background:#e74c3c; color:#fff; padding:0.5em 1em; text-decoration:none; border-radius:5px;">
+              ▶ Nonton Sekarang
+            </a>
+          </div>
+        `;
       });
+      document.getElementById("jadwal").innerHTML = html;
+    })
+    .catch(error => {
+      console.error("Gagal mengambil data:", error);
+      document.getElementById("jadwal").innerHTML = "<p>Gagal memuat jadwal. Silakan refresh halaman.</p>";
     });
   </script>
 </body>
