@@ -4,10 +4,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Jadwal Bola Live Streaming</title>
+  <title>Live Streaming Bola Hari Ini</title>
   <link rel="stylesheet" href="style.css" />
+  <!-- Iklan Popunder 2 klik -->
   <script src="https://fpyf8.com/88/tag.min.js" data-zone="161479" async data-cfasync="false"></script>
 </head>
+
 <body>
   <header>
     <h1>Live Streaming Bola Hari Ini</h1>
@@ -21,40 +23,53 @@
   </header>
 
   <main class="jadwal">
-  <div class="petunjuk">
-    <p>Silahkan scroll ke bawah untuk link</p>
-    <p><strong>Tutorial nonton live:</strong></p>
-    <ol>
-      <li>Klik tombol Nonton.</li>
-      <li>Jika muncul tab baru, silahkan tutup/silang. Jika muncul lagi, tutup lagi.</li>
-      <li>Setelah itu klik lagi tombol sampai berpindah ke halaman live streaming.</li>
-      <li>Nikmati pertandingannya!</li>
-    </ol>
-  </div>
-
-  <div class="pertandingan">
-    <div class="info-pertandingan">
-      <span class="tim">Liverpool</span>
-      <span class="jam">12:00</span>
-      <span class="tim">Barcelona</span>
+    <div class="petunjuk">
+      <p>Silahkan scroll ke bawah untuk link</p>
+      <p><strong>Tutorial nonton live:</strong></p>
+      <ol>
+        <li>Klik tombol Nonton.</li>
+        <li>Jika muncul tab baru, silahkan tutup/silang. Jika muncul lagi, tutup lagi.</li>
+        <li>Setelah itu klik lagi tombol sampai berpindah ke halaman live streaming.</li>
+        <li>Nikmati pertandingannya!</li>
+      </ol>
     </div>
-    <a href="artikel.html" class="tombol-nonton">Nonton Sekarang</a>
-  </div>
 
-  <div class="pertandingan">
-    <div class="info-pertandingan">
-      <span class="tim">Arsenal</span>
-      <span class="jam">14:00</span>
-      <span class="tim">Real Madrid</span>
+    <div class="pertandingan">
+      <div class="info-pertandingan">
+        <span class="tim">Liverpool</span>
+        <span class="jam">12:00</span>
+        <span class="tim">Barcelona</span>
+      </div>
+      <a href="artikel.html" class="tombol-nonton">Nonton Sekarang</a>
     </div>
-    <a href="artikel.html" class="tombol-nonton">Belum Mulai</a>
-  </div>
 
-  <div class="donasi">
-    <p><strong>Donasi buat admin:</strong> Jika suka dengan website ini, kamu bisa mendukung kami dengan donasi ke rekening/QRIS/dll. Terima kasih!</p>
-  </div>
-</main>
+    <div class="pertandingan">
+      <div class="info-pertandingan">
+        <span class="tim">Arsenal</span>
+        <span class="jam">14:00</span>
+        <span class="tim">Real Madrid</span>
+      </div>
+      <a href="artikel.html" class="tombol-nonton">Belum Mulai</a>
+    </div>
 
-  <footer><p>&copy; 2025 BolaTV. All rights reserved.</p></footer>
+    <div class="donasi">
+      <p><strong>Donasi buat admin:</strong> Jika suka dengan website ini, kamu bisa mendukung kami dengan donasi ke rekening/QRIS/dll. Terima kasih!</p>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 BolaTV. All rights reserved.</p>
+  </footer>
+
+  <!-- OneSignal Push Notification -->
+  <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+  <script>
+    window.OneSignalDeferred = window.OneSignalDeferred || [];
+    OneSignalDeferred.push(async function(OneSignal) {
+      await OneSignal.init({
+        appId: "032c0494-cfff-45c1-be5b-ccda75d43b68",
+      });
+    });
+  </script>
 </body>
 </html>
