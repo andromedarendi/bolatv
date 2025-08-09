@@ -1,1 +1,621 @@
-<!DOCTYPE html><html><head><meta charset='UTF-8'><title>tentang.html</title></head><body><h1>Tentang Kami</h1><p>Ini adalah situs live streaming bola yang menyediakan tayangan terbaik setiap hari.</p></body></html>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tentang - BolaTV</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
+            color: #ffffff;
+            min-height: 100vh;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 4rem;
+            position: relative;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, #ffffff, transparent);
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            0% { opacity: 0.5; width: 100px; }
+            100% { opacity: 1; width: 200px; }
+        }
+
+        .main-title {
+            font-size: 4rem;
+            font-weight: 900;
+            background: linear-gradient(45deg, #ffffff, #cccccc);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+            margin-bottom: 1rem;
+            animation: titleFloat 3s ease-in-out infinite;
+        }
+
+        @keyframes titleFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #cccccc;
+            margin-bottom: 3rem;
+        }
+
+        .about-section {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 25px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            color: #ffffff;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-icon {
+            font-size: 1.5rem;
+        }
+
+        .section-content {
+            color: #cccccc;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 30px;
+            padding: 4rem;
+            text-align: center;
+            margin-bottom: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            animation: rotate 10s linear infinite;
+            z-index: -1;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .hero-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-description {
+            font-size: 1.3rem;
+            color: #cccccc;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #ffffff, transparent);
+            transition: left 0.5s ease;
+        }
+
+        .feature-card:hover::before {
+            left: 100%;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .feature-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 1rem;
+        }
+
+        .feature-description {
+            color: #cccccc;
+            font-size: 1rem;
+        }
+
+        .stats-section {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 20px;
+            padding: 3rem;
+            margin: 3rem 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-item {
+            padding: 1.5rem;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 900;
+            color: #ffffff;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            color: #cccccc;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .mission-section {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 25px;
+            padding: 3rem;
+            text-align: center;
+        }
+
+        .mission-title {
+            font-size: 2rem;
+            color: #ffffff;
+            margin-bottom: 2rem;
+        }
+
+        .mission-text {
+            font-size: 1.2rem;
+            color: #cccccc;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        .floating-elements {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .floating-circle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.02);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating-circle:nth-child(1) {
+            top: 15%;
+            left: 5%;
+            width: 80px;
+            height: 80px;
+            animation-delay: 0s;
+        }
+
+        .floating-circle:nth-child(2) {
+            top: 50%;
+            right: 5%;
+            width: 120px;
+            height: 120px;
+            animation-delay: 2s;
+        }
+
+        .floating-circle:nth-child(3) {
+            bottom: 15%;
+            left: 15%;
+            width: 60px;
+            height: 60px;
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(180deg); }
+        }
+
+        .cta-section {
+            text-align: center;
+            padding: 3rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            margin-top: 3rem;
+        }
+
+        .cta-title {
+            font-size: 1.8rem;
+            color: #ffffff;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #ffffff, #cccccc);
+            color: #000000;
+            text-decoration: none;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(255, 255, 255, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .hero-description {
+                font-size: 1.1rem;
+            }
+            
+            .container {
+                padding: 1rem;
+            }
+            
+            .about-section,
+            .hero-section {
+                padding: 2rem;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-elements">
+        <div class="floating-circle"></div>
+        <div class="floating-circle"></div>
+        <div class="floating-circle"></div>
+    </div>
+
+    <div class="container">
+        <header class="header">
+            <h1 class="main-title">TENTANG KAMI</h1>
+            <p class="subtitle">Mengenal lebih dekat platform streaming sepakbola terdepan</p>
+        </header>
+
+        <div class="hero-section">
+            <h2 class="hero-title">⚽ BolaTV - Platform Streaming Sepakbola Terbaik</h2>
+            <p class="hero-description">
+                Kami adalah platform streaming sepakbola yang menyediakan akses ke pertandingan-pertandingan terbaik dari seluruh dunia. Setiap hari, kami menghadirkan tayangan berkualitas tinggi untuk para pecinta sepakbola di Indonesia.
+            </p>
+        </div>
+
+        <div class="about-section">
+            <h2 class="section-title">
+                <span class="section-icon">🎯</span>
+                Siapa Kami
+            </h2>
+            <div class="section-content">
+                <p>
+                    BolaTV lahir dari passion mendalam terhadap sepakbola dan keinginan untuk memberikan akses mudah bagi para fans di Indonesia untuk menikmati pertandingan favorit mereka. Kami memahami betapa pentingnya sepakbola dalam kehidupan sehari-hari dan berkomitmen untuk menjadi jembatan antara Anda dan momen-momen spektakuler di lapangan hijau.
+                </p>
+                <p style="margin-top: 1.5rem;">
+                    Dengan pengalaman bertahun-tahun di industri streaming dan pemahaman mendalam tentang kebutuhan penggemar sepakbola, kami telah mengembangkan platform yang user-friendly, reliable, dan selalu up-to-date dengan pertandingan terbaru.
+                </p>
+            </div>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-card">
+                <span class="feature-icon">🔴</span>
+                <h3 class="feature-title">Live Streaming</h3>
+                <p class="feature-description">
+                    Saksikan pertandingan secara langsung dengan kualitas HD dan delay minimal untuk pengalaman menonton yang optimal.
+                </p>
+            </div>
+            
+            <div class="feature-card">
+                <span class="feature-icon">🌍</span>
+                <h3 class="feature-title">Liga Internasional</h3>
+                <p class="feature-description">
+                    Akses ke liga-liga top dunia termasuk Premier League, La Liga, Serie A, Bundesliga, dan Liga Champions.
+                </p>
+            </div>
+            
+            <div class="feature-card">
+                <span class="feature-icon">📱</span>
+                <h3 class="feature-title">Multi Platform</h3>
+                <p class="feature-description">
+                    Nikmati streaming di berbagai perangkat - desktop, laptop, tablet, atau smartphone dengan tampilan responsif.
+                </p>
+            </div>
+            
+            <div class="feature-card">
+                <span class="feature-icon">🆓</span>
+                <h3 class="feature-title">Gratis</h3>
+                <p class="feature-description">
+                    Akses semua pertandingan tanpa biaya berlangganan. Kami percaya sepakbola harus dapat dinikmati semua orang.
+                </p>
+            </div>
+            
+            <div class="feature-card">
+                <span class="feature-icon">⚡</span>
+                <h3 class="feature-title">Update Cepat</h3>
+                <p class="feature-description">
+                    Link streaming selalu diperbaharui dengan cepat, jadwal pertandingan akurat, dan informasi terkini.
+                </p>
+            </div>
+            
+            <div class="feature-card">
+                <span class="feature-icon">🛡️</span>
+                <h3 class="feature-title">Aman & Terpercaya</h3>
+                <p class="feature-description">
+                    Platform aman dengan perlindungan data pengguna dan link streaming yang sudah terverifikasi keamanannya.
+                </p>
+            </div>
+        </div>
+
+        <div class="stats-section">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">1000+</div>
+                    <div class="stat-label">Pertandingan Disiarkan</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Liga & Kompetisi</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Layanan Tersedia</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">100K+</div>
+                    <div class="stat-label">Pengguna Puas</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="about-section">
+            <h2 class="section-title">
+                <span class="section-icon">🏆</span>
+                Komitmen Kami
+            </h2>
+            <div class="section-content">
+                <div class="features-grid" style="margin-top: 2rem;">
+                    <div style="text-align: center;">
+                        <h4 style="color: #ffffff; margin-bottom: 1rem;">🎥 Kualitas Terbaik</h4>
+                        <p>Kami berkomitmen menyediakan streaming dengan kualitas terbaik dan stabilitas tinggi untuk pengalaman menonton yang memuaskan.</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <h4 style="color: #ffffff; margin-bottom: 1rem;">⏱️ Ketepatan Waktu</h4>
+                        <p>Semua jadwal pertandingan selalu akurat dan link streaming tersedia tepat waktu sebelum kick-off dimulai.</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <h4 style="color: #ffffff; margin-bottom: 1rem;">🤝 Komunitas</h4>
+                        <p>Membangun komunitas pecinta sepakbola yang solid dengan menyediakan platform diskusi dan interaksi.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mission-section">
+            <h2 class="mission-title">Misi Kami</h2>
+            <p class="mission-text">
+                "Menjadikan sepakbola lebih accessible untuk semua orang di Indonesia. Kami percaya bahwa setiap orang berhak menikmati keindahan sepakbola tanpa hambatan geografis atau ekonomi. Melalui teknologi streaming modern, kami menghadirkan stadion langsung ke rumah Anda."
+            </p>
+        </div>
+
+        <div class="about-section">
+            <h2 class="section-title">
+                <span class="section-icon">🔮</span>
+                Visi Masa Depan
+            </h2>
+            <div class="section-content">
+                <p>
+                    Kami terus berinovasi untuk mengembangkan fitur-fitur baru yang akan meningkatkan pengalaman menonton sepakbola. Beberapa rencana pengembangan kami meliputi:
+                </p>
+                <div style="margin-top: 2rem;">
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="padding: 0.5rem 0; color: #cccccc;">⚽ Fitur statistik real-time selama pertandingan</li>
+                        <li style="padding: 0.5rem 0; color: #cccccc;">⚽ Sistem notifikasi untuk pertandingan favorit</li>
+                        <li style="padding: 0.5rem 0; color: #cccccc;">⚽ Integrasi dengan media sosial untuk diskusi live</li>
+                        <li style="padding: 0.5rem 0; color: #cccccc;">⚽ Arsip highlight dan replay pertandingan</li>
+                        <li style="padding: 0.5rem 0; color: #cccccc;">⚽ Prediksi dan analisis pertandingan oleh expert</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="cta-section">
+            <h3 class="cta-title">Bergabunglah dengan Komunitas BolaTV</h3>
+            <p style="color: #cccccc; margin-bottom: 1rem;">
+                Hubungi kami untuk pertanyaan, saran, atau diskusi seputar sepakbola
+            </p>
+            <a href="https://instagram.com/fanofmessiandronaldo" target="_blank" class="cta-button">
+                Follow Instagram Kami
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Add smooth scroll effect and animations
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.about-section, .feature-card');
+            
+            sections.forEach((section, index) => {
+                section.style.animationDelay = `${index * 0.1}s`;
+                section.style.animation = 'slideIn 0.8s ease-out forwards';
+            });
+
+            // Intersection Observer for scroll animations
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            sections.forEach(section => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(20px)';
+                section.style.transition = 'all 0.6s ease-out';
+                observer.observe(section);
+            });
+
+            // Animate stats numbers
+            const statNumbers = document.querySelectorAll('.stat-number');
+            const animateStats = () => {
+                statNumbers.forEach(stat => {
+                    const finalNumber = stat.textContent;
+                    const isPlus = finalNumber.includes('+');
+                    const isSlash = finalNumber.includes('/');
+                    
+                    if (isSlash) return; // Skip 24/7
+                    
+                    const number = parseInt(finalNumber.replace(/\D/g, ''));
+                    const increment = Math.ceil(number / 50);
+                    let current = 0;
+                    
+                    const timer = setInterval(() => {
+                        current += increment;
+                        if (current >= number) {
+                            stat.textContent = finalNumber;
+                            clearInterval(timer);
+                        } else {
+                            stat.textContent = current + (isPlus ? '+' : '');
+                        }
+                    }, 30);
+                });
+            };
+
+            // Trigger stats animation when stats section is visible
+            const statsObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateStats();
+                        statsObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            const statsSection = document.querySelector('.stats-section');
+            if (statsSection) {
+                statsObserver.observe(statsSection);
+            }
+        });
+
+        // Add slideIn animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideIn {
+                0% {
+                    opacity: 0;
+                    transform: translateY(30px);
+                }
+                100% {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
