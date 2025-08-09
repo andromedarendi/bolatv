@@ -1,1 +1,606 @@
-<!DOCTYPE html><html><head><meta charset='UTF-8'><title>privacy.html</title></head><body><h1>Kebijakan Privasi</h1><p>Kami menghargai privasi Anda dan tidak menyimpan informasi pribadi tanpa izin.</p></body></html>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kebijakan Privasi - BolaTV</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
+            color: #ffffff;
+            min-height: 100vh;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 4rem;
+            position: relative;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, #ffffff, transparent);
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            0% { opacity: 0.5; width: 100px; }
+            100% { opacity: 1; width: 200px; }
+        }
+
+        .main-title {
+            font-size: 4rem;
+            font-weight: 900;
+            background: linear-gradient(45deg, #ffffff, #cccccc);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+            margin-bottom: 1rem;
+            animation: titleFloat 3s ease-in-out infinite;
+        }
+
+        @keyframes titleFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #cccccc;
+            margin-bottom: 3rem;
+        }
+
+        .privacy-section {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 25px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            color: #ffffff;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-icon {
+            font-size: 1.5rem;
+        }
+
+        .section-content {
+            color: #cccccc;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .highlight-box {
+            background: rgba(255, 255, 255, 0.08);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .highlight-text {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 1rem;
+        }
+
+        .security-box {
+            background: rgba(0, 255, 0, 0.1);
+            border: 2px solid rgba(0, 255, 0, 0.3);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .security-title {
+            color: #00ff00;
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .info-box {
+            background: rgba(0, 150, 255, 0.1);
+            border: 2px solid rgba(0, 150, 255, 0.3);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .info-title {
+            color: #0096ff;
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .important-list {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0;
+        }
+
+        .important-list li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .important-list li:before {
+            content: "🛡️";
+            position: absolute;
+            left: 0;
+            color: #ffffff;
+        }
+
+        .important-list li:last-child {
+            border-bottom: none;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .data-table th,
+        .data-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .data-table th {
+            background: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        .data-table td {
+            color: #cccccc;
+        }
+
+        .floating-elements {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .floating-circle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.02);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating-circle:nth-child(1) {
+            top: 15%;
+            left: 5%;
+            width: 80px;
+            height: 80px;
+            animation-delay: 0s;
+        }
+
+        .floating-circle:nth-child(2) {
+            top: 50%;
+            right: 5%;
+            width: 120px;
+            height: 120px;
+            animation-delay: 2s;
+        }
+
+        .floating-circle:nth-child(3) {
+            bottom: 15%;
+            left: 15%;
+            width: 60px;
+            height: 60px;
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(180deg); }
+        }
+
+        .contact-info {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            margin-top: 3rem;
+        }
+
+        .contact-link {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .contact-link:hover {
+            border-bottom-color: #ffffff;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 2.5rem;
+            }
+            
+            .container {
+                padding: 1rem;
+            }
+            
+            .privacy-section {
+                padding: 2rem;
+            }
+            
+            .section-content {
+                font-size: 1rem;
+            }
+            
+            .data-table th,
+            .data-table td {
+                padding: 0.5rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-elements">
+        <div class="floating-circle"></div>
+        <div class="floating-circle"></div>
+        <div class="floating-circle"></div>
+    </div>
+
+    <div class="container">
+        <header class="header">
+            <h1 class="main-title">KEBIJAKAN PRIVASI</h1>
+            <p class="subtitle">Komitmen kami terhadap privasi dan keamanan data Anda</p>
+        </header>
+
+        <div class="privacy-section">
+            <h2 class="section-title">
+                <span class="section-icon">🎯</span>
+                Pendahuluan
+            </h2>
+            <div class="section-content">
+                <p>
+                    BolaTV menghormati privasi pengguna dan berkomitmen untuk melindungi data pribadi Anda. Kebijakan privasi ini menjelaskan bagaimana kami mengumpulkan, menggunakan, dan melindungi informasi Anda saat menggunakan layanan streaming sepakbola kami.
+                </p>
+                
+                <div class="highlight-box">
+                    <p class="highlight-text">
+                        Privasi Anda adalah prioritas utama kami
+                    </p>
+                    <p>Kami tidak akan menjual, menyewakan, atau membagikan data pribadi Anda kepada pihak ketiga tanpa persetujuan Anda</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="privacy-section">
+            <h2 class="section-title">
+                <span class="section-icon">📊</span>
+                Informasi yang Kami Kumpulkan
+            </h2>
+            <div class="section-content">
+                <p>
+                    Sebagai platform streaming sepakbola, kami mengumpulkan informasi minimal yang diperlukan untuk memberikan layanan terbaik:
+                </p>
+                
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Jenis Data</th>
+                            <th>Tujuan</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>IP Address</td>
+                            <td>Keamanan dan analitik dasar</td>
+                            <td>Otomatis</td>
+                        </tr>
+                        <tr>
+                            <td>Browser Information</td>
+                            <td>Optimalisasi tampilan</td>
+                            <td>Otomatis</td>
+                        </tr>
+                        <tr>
+                            <td>Device Type</td>
+                            <td>Responsive design</td>
+                            <td>Otomatis</td>
+                        </tr>
+                        <tr>
+                            <td>Data Kontak Instagram</td>
+                            <td>Support dan komunikasi</td>
+                            <td>Opsional</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div class="security-box">
+                    <h3 class="security-title">
+                        <span>✅</span>
+                        Yang TIDAK Kami Kumpulkan
+                    </h3>
+                    <ul class="important-list">
+                        <li>Data pribadi seperti nama lengkap, alamat, atau nomor telepon</li>
+                        <li>Informasi kartu kredit atau data finansial</li>
+                        <li>Riwayat browsing di luar website kami</li>
+                        <li>Data login atau password (karena tidak ada sistem login)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="privacy-section">
+            <h2 class="section-title">
+                <span class="section-icon">🔐</span>
+                Bagaimana Kami Melindungi Data Anda
+            </h2>
+            <div class="section-content">
+                <p>
+                    Keamanan data adalah prioritas utama kami. Kami menerapkan berbagai langkah keamanan untuk melindungi informasi Anda:
+                </p>
+                
+                <ul class="important-list">
+                    <li>Enkripsi SSL untuk semua transmisi data</li>
+                    <li>Server aman dengan firewall tingkat enterprise</li>
+                    <li>Akses terbatas terhadap data pengguna</li>
+                    <li>Monitoring keamanan 24/7</li>
+                    <li>Backup data regular untuk mencegah kehilangan</li>
+                    <li>Pembaruan keamanan berkala</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="privacy-section">
+            <h2 class="section-title">
+                <span class="section-icon">🍪</span>
+                Cookie dan Teknologi Pelacakan
+            </h2>
+            <div class="section-content">
+                <p>
+                    Kami menggunakan cookie dan teknologi serupa untuk meningkatkan pengalaman pengguna:
+                </p>
+                
+                <div class="info-box">
+                    <h3 class="info-title">
+                        <span>ℹ️</span>
+                        Jenis Cookie yang Kami Gunakan
+                    </h3>
+                    <ul class="important-list">
+                        <li><strong>Cookie Teknis:</strong> Diperlukan untuk fungsi dasar website</li>
+                        <li><strong>Cookie Preferensi:</strong> Mengingat pengaturan tampilan Anda</li>
+                        <li><strong>Cookie Analitik:</strong> Membantu kami memahami cara penggunaan website</li>
+                    </ul>
+                </div>
+                
+                <p>
+                    Anda dapat mengatur atau menonaktifkan cookie melalui pengaturan browser Anda. Namun, menonaktifkan cookie mungkin mempengaruhi fungsionalitas website.
+                </p>
+            </div>
+        </div>
+
+        <div class="privacy-section">
+            <h2 class="section-title">
+                <span class="section-icon">🔗</span>
+                Link Pihak Ketiga
+            </h2>
+            <div class="section-content">
+                <p>
+                    Website kami menyediakan akses ke link streaming dari pihak ketiga. Penting untuk diketahui:
+                </p>
+                
+                <ul class="important-list">
+                    <li>Kami tidak mengontrol kebijakan privasi website pihak ketiga</li>
+                    <li>Setiap platform streaming memiliki kebijakan privasi sendiri</li>
+                    <li>Kami menyarankan untuk membaca kebijakan privasi setiap platform</li>
+                    <li>Gunakan VPN untuk melindungi identitas saat streaming</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="privacy-section">
+            <h2 class="section-title">
+                <span class="section-icon">⚖️</span>
+                Hak-Hak Anda
+            </h2>
+            <div class="section-content">
+                <p>
+                    Sebagai pengguna, Anda memiliki hak-hak berikut terkait data pribadi:
+                </p>
+                
+                <div class="highlight-box">
+                    <div style="text-align: left;">
+                        <ul class="important-list">
+                            <li><strong>Hak Akses:</strong> Mengetahui data apa yang kami kumpulkan</li>
+                            <li><strong>Hak Koreksi:</strong> Meminta perbaikan data yang tidak akurat</li>
+                            <li><strong>Hak Penghapusan:</strong> Meminta penghapusan data pribadi</li>
+                            <li><strong>Hak Portabilitas:</strong> Mendapatkan copy data dalam format yang dapat dibaca</li>
+                            <li><strong>Hak Keberatan:</strong> Menolak pemrosesan data tertentu</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <p>
+                    Untuk menggunakan hak-hak ini, silakan hubungi kami melalui Instagram.
+                </p>
+            </div>
+        </div>
+
+        <div class="privacy-section">
+            <h2 class="section-title">
+                <span class="section-icon">👶</span>
+                Perlindungan Anak
+            </h2>
+            <div class="section-content">
+                <p>
+                    BolaTV berkomitmen untuk melindungi privasi anak-anak:
+                </p>
+                
+                <div class="security-box">
+                    <h3 class="security-title">
+                        <span>🔒</span>
+                        Kebijakan Khusus Anak
+                    </h3>
+                    <ul class="important-list">
+                        <li>Kami tidak secara sengaja mengumpulkan data dari anak di bawah 13 tahun</li>
+                        <li>Jika terdeteksi data anak, kami akan segera menghapusnya</li>
+                        <li>Orang tua dapat menghubungi kami untuk penghapusan data anak</li>
+                        <li>Kami menyarankan pengawasan orang tua saat anak menggunakan internet</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="privacy-section">
+            <h2 class="section-title">
+                <span class="section-icon">📱</span>
+                Kontak dan Dukungan
+            </h2>
+            <div class="section-content">
+                <p>
+                    Jika Anda memiliki pertanyaan tentang kebijakan privasi ini atau ingin menggunakan hak-hak privasi Anda, silakan hubungi kami:
+                </p>
+                
+                <div class="contact-info">
+                    <p>Tim Privacy BolaTV:</p>
+                    <a href="https://instagram.com/fanofmessiandronaldo" target="_blank" class="contact-link">
+                        @fanofmessiandronaldo
+                    </a>
+                    <p style="margin-top: 1rem; font-size: 0.9rem; color: #cccccc;">
+                        Kami akan merespons pertanyaan privasi dalam 48 jam
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="privacy-section">
+            <h2 class="section-title">
+                <span class="section-icon">📋</span>
+                Perubahan Kebijakan
+            </h2>
+            <div class="section-content">
+                <p>
+                    Kami dapat memperbarui kebijakan privasi ini dari waktu ke waktu untuk mencerminkan perubahan dalam layanan atau peraturan yang berlaku.
+                </p>
+                
+                <div class="highlight-box">
+                    <p class="highlight-text">
+                        Terakhir diperbarui: Agustus 2025
+                    </p>
+                    <p>Kami akan memberitahu perubahan signifikan melalui website atau kontak yang tersedia</p>
+                    <p style="margin-top: 1rem;">Penggunaan berkelanjutan layanan kami berarti persetujuan terhadap kebijakan terbaru</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Add smooth scroll effect and animations
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.privacy-section');
+            
+            sections.forEach((section, index) => {
+                section.style.animationDelay = `${index * 0.1}s`;
+                section.style.animation = 'slideIn 0.8s ease-out forwards';
+            });
+
+            // Intersection Observer for scroll animations
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            sections.forEach(section => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(20px)';
+                section.style.transition = 'all 0.6s ease-out';
+                observer.observe(section);
+            });
+
+            // Add table hover effects
+            const tableRows = document.querySelectorAll('.data-table tbody tr');
+            tableRows.forEach(row => {
+                row.addEventListener('mouseenter', function() {
+                    this.style.backgroundColor = 'rgba(255, 255, 255, 0.05)';
+                });
+                row.addEventListener('mouseleave', function() {
+                    this.style.backgroundColor = 'transparent';
+                });
+            });
+        });
+
+        // Add slideIn animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideIn {
+                0% {
+                    opacity: 0;
+                    transform: translateY(30px);
+                }
+                100% {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
