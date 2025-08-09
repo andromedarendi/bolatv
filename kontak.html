@@ -73,9 +73,12 @@
 
         .contact-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr;
             gap: 3rem;
             margin-bottom: 4rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .contact-card {
@@ -131,7 +134,7 @@
             line-height: 1.6;
         }
 
-        .email-link {
+        .instagram-link {
             color: #ffffff;
             text-decoration: none;
             border-bottom: 2px solid transparent;
@@ -139,78 +142,66 @@
             font-weight: 600;
         }
 
-        .email-link:hover {
+        .instagram-link:hover {
             border-bottom-color: #ffffff;
             text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
         }
 
-        .form-section {
+        .info-section {
             background: rgba(255, 255, 255, 0.03);
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 25px;
             padding: 3rem;
             margin-top: 3rem;
-        }
-
-        .form-title {
-            font-size: 2rem;
             text-align: center;
+        }
+
+        .info-title {
+            font-size: 2rem;
             margin-bottom: 2rem;
             color: #ffffff;
         }
 
-        .form-group {
-            margin-bottom: 2rem;
-        }
-
-        .form-label {
-            display: block;
-            margin-bottom: 0.5rem;
-            color: #cccccc;
-            font-weight: 600;
-        }
-
-        .form-input,
-        .form-textarea {
-            width: 100%;
-            padding: 1rem 1.5rem;
-            background: rgba(255, 255, 255, 0.05);
-            border: 2px solid rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            color: #ffffff;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-        }
-
-        .form-input:focus,
-        .form-textarea:focus {
-            outline: none;
-            border-color: rgba(255, 255, 255, 0.4);
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
-        }
-
-        .form-textarea {
-            height: 120px;
-            resize: vertical;
-        }
-
-        .submit-btn {
-            background: linear-gradient(45deg, #ffffff, #cccccc);
-            color: #000000;
-            border: none;
-            padding: 1rem 3rem;
-            border-radius: 50px;
+        .info-text {
             font-size: 1.1rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: block;
-            margin: 2rem auto 0;
+            line-height: 1.8;
+            color: #cccccc;
+            margin-bottom: 2rem;
         }
 
-        .submit-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(255, 255, 255, 0.2);
+        .examples-list {
+            text-align: left;
+            max-width: 600px;
+            margin: 2rem auto;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 2rem;
+            border-radius: 15px;
+        }
+
+        .examples-list h3 {
+            color: #ffffff;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .examples-list ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .examples-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            color: #cccccc;
+        }
+
+        .examples-list li:before {
+            content: "⚽";
+            margin-right: 10px;
+        }
+
+        .examples-list li:last-child {
+            border-bottom: none;
         }
 
         .floating-elements {
@@ -260,10 +251,6 @@
         }
 
         @media (max-width: 768px) {
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
-            
             .main-title {
                 font-size: 2.5rem;
             }
@@ -273,7 +260,7 @@
             }
             
             .contact-card,
-            .form-section {
+            .info-section {
                 padding: 2rem;
             }
         }
@@ -289,84 +276,49 @@
     <div class="container">
         <header class="header">
             <h1 class="main-title">HUBUNGI KAMI</h1>
-            <p class="subtitle">Kami siap membantu Anda 24/7</p>
+            <p class="subtitle">Untuk informasi sepakbola terkini</p>
         </header>
 
         <div class="contact-grid">
             <div class="contact-card">
-                <span class="card-icon">📧</span>
-                <h3 class="card-title">Email</h3>
+                <span class="card-icon">📱</span>
+                <h3 class="card-title">Instagram</h3>
                 <div class="card-content">
-                    <p>Kirimkan pesan Anda ke:</p>
-                    <a href="mailto:admin@bolatv.com" class="email-link">admin@bolatv.com</a>
-                    <p style="margin-top: 1rem; font-size: 0.9rem;">Respon dalam 24 jam</p>
-                </div>
-            </div>
-
-            <div class="contact-card">
-                <span class="card-icon">⚡</span>
-                <h3 class="card-title">Respons Cepat</h3>
-                <div class="card-content">
-                    <p>Tim support kami siap membantu</p>
-                    <p style="font-weight: 600; margin-top: 0.5rem;">24 Jam / 7 Hari</p>
-                    <p style="margin-top: 1rem; font-size: 0.9rem;">Professional & Terpercaya</p>
+                    <p>DM Instagram kami di:</p>
+                    <a href="https://instagram.com/fanofmessiandronaldo" target="_blank" class="instagram-link">@fanofmessiandronaldo</a>
+                    <p style="margin-top: 1rem; font-size: 0.9rem;">Untuk info sepakbola</p>
                 </div>
             </div>
         </div>
 
-        <div class="form-section">
-            <h2 class="form-title">Kirim Pesan</h2>
-            <form>
-                <div class="form-group">
-                    <label for="name" class="form-label">Nama Lengkap</label>
-                    <input type="text" id="name" name="name" class="form-input" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="email" class="form-label">Email</label>
-                    <input type="email" id="email" name="email" class="form-input" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="subject" class="form-label">Subjek</label>
-                    <input type="text" id="subject" name="subject" class="form-input" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="message" class="form-label">Pesan</label>
-                    <textarea id="message" name="message" class="form-textarea" required></textarea>
-                </div>
-                
-                <button type="submit" class="submit-btn">KIRIM PESAN</button>
-            </form>
+        <div class="info-section">
+            <h2 class="info-title">Tentang Pesan Sepakbola</h2>
+            <p class="info-text">
+                Kirimkan pesan Anda tentang sepakbola ke Instagram kami. Kami menyediakan informasi lengkap 
+                seputar dunia sepakbola termasuk jadwal pertandingan, hasil skor, berita terkini, dan analisis pertandingan.
+            </p>
+            
+            <div class="examples-list">
+                <h3>Contoh Pesan yang Bisa Anda Kirim:</h3>
+                <ul>
+                    <li>Jadwal live Real Madrid vs Manchester City</li>
+                    <li>Skor terbaru Liga Champions</li>
+                    <li>Berita transfer pemain terkini</li>
+                    <li>Statistik pertandingan Barcelona vs PSG</li>
+                    <li>Jadwal Premier League akhir pekan ini</li>
+                    <li>Update cedera pemain favorit Anda</li>
+                    <li>Prediksi pertandingan El Clasico</li>
+                    <li>Highlight gol-gol terbaik</li>
+                </ul>
+            </div>
+            
+            <p class="info-text">
+                Kami akan memberikan informasi sepakbola yang akurat dan terpercaya sesuai dengan pertanyaan Anda.
+            </p>
         </div>
     </div>
 
     <script>
-        // Form submission handler
-        document.querySelector('form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form data
-            const formData = new FormData(this);
-            const name = formData.get('name');
-            const email = formData.get('email');
-            const subject = formData.get('subject');
-            const message = formData.get('message');
-            
-            // Create mailto link
-            const mailtoLink = `mailto:admin@bolatv.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Nama: ${name}\nEmail: ${email}\n\nPesan:\n${message}`)}`;
-            
-            // Open email client
-            window.location.href = mailtoLink;
-            
-            // Show success message
-            alert('Email client akan terbuka untuk mengirim pesan Anda!');
-            
-            // Reset form
-            this.reset();
-        });
-
         // Add smooth scroll effect
         document.addEventListener('DOMContentLoaded', function() {
             const cards = document.querySelectorAll('.contact-card');
